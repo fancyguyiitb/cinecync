@@ -1,10 +1,22 @@
 import "./App.css";
-import { fetchApiData } from "./utils/api";
 import { useEffect } from "react";
+//react router
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 //importing stuff for react store
 import { useSelector, useDispatch } from "react-redux";
 //importing our api config function
 import { getApiConfiguration } from "./store/homeSlice";
+//importing the fetching data function
+import { fetchApiData } from "./utils/api";
+
+//importing all the individual components
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import Home from "./pages/home/Home";
+import Details from "./pages/details/Details";
+import SearchResult from "./pages/searchResults/SearchResult";
+import Explore from "./pages/explore/Explore";
+import PageNotFound from "./pages/404/PageNotFound";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,10 +39,18 @@ function App() {
   };
   return (
     <>
-      <div className="App">
-        JUJU
-        {url?.total_pages}
-      </div>
+      <BrowserRouter>
+        {/* <Header /> */}
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/:mediaType/:id" element={<Details />} />
+          <Route exact path="/search/:query" element={<SearchResult />} />
+          <Route exact path="/explore/:mediaType" element={<SearchResult />} />
+          {/* FOR ANY OTHER ROUTES, THE 404 PAGE WILL BE RETURNED */}
+          <Route exact path="*" element={<PageNotFound />} />
+        </Routes>
+        {/* <Footer /> */}
+      </BrowserRouter>
     </>
   );
 }
