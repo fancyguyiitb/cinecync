@@ -1,14 +1,14 @@
 import axios from 'axios';
 
 //declaring the API key
-const apiKey = "a76b34b2e105fa4206f09f61dfd48f38";
+// const apiKey = process.env.REACT_APP_NEWS_API
+const apiKey = "a76b34b2e105fa4206f09f61dfd48f38"; //HIDE THIS!
 
 //declaring a base URL for the api
 const baseUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
 
 //const tmdbToken = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNzZiMzRiMmUxMDVmYTQyMDZmMDlmNjFkZmQ0OGYzOCIsInN1YiI6IjY1M2QxNGI1MTA5Y2QwMDE0ZGY0NTQyNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.cnpxW6AFFrNlmVSZWuPu8zq0fxQ44ka89MBEwXh69Nw";
 //const tmdbToken = import.meta.env.REACT_APP_TMDB_TOKEN;
-
 // const headers = {
 //     Authorization: "bearer " + tmdbToken,
 // };
