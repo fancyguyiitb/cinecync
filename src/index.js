@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  //strict mode in react does calling and updating states twice, to check if correct
+  //res has been sent
   <React.StrictMode>
     <App />
   </React.StrictMode>
