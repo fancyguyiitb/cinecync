@@ -22,25 +22,31 @@ function App() {
   const dispatch = useDispatch();
   //storing our url
   const { url } = useSelector((state) => state.home);
-  console.log(url);
 
   useEffect(() => {
     //calling our api to fetch data
-    apiTest();
+    fetchApiConfig();
     // eslint-disable-next-line
   }, []);
 
-  const apiTest = () => {
-    fetchApiData().then((res) => {
-      console.log(res);
+  const fetchApiConfig = () => {
+    fetchApiData("/configuration").then((res) => {
+      // console.log(res);
+
+      const url = {
+        backdrop: res.images.secure_base_url + "original",
+        poster: res.images.secure_base_url + "original",
+        profile: res.images.secure_base_url + "original",
+      };
+
       //saving the response data into our redux store
-      dispatch(getApiConfiguration(res));
+      dispatch(getApiConfiguration(url));
     });
   };
   return (
     <>
       <BrowserRouter>
-        {/* <Header /> */}
+        <Header />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/:mediaType/:id" element={<Details />} />
@@ -49,7 +55,7 @@ function App() {
           {/* FOR ANY OTHER ROUTES, THE 404 PAGE WILL BE RETURNED */}
           <Route exact path="*" element={<PageNotFound />} />
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </BrowserRouter>
     </>
   );
