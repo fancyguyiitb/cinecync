@@ -43,6 +43,10 @@ function App() {
       dispatch(getApiConfiguration(url));
     });
   };
+
+  //we fetch genres of both movies and shows initially and store them into our stores
+  //for multiple API calls, we use promise.all
+  
   return (
     <>
       <BrowserRouter>
