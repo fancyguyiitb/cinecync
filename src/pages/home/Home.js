@@ -4,13 +4,16 @@ import './style.scss'
 //importing our modules
 import HeroBanner from './heroBanner/HeroBanner'
 import Trending from "./trending/Trending";
-import ContentWrapper from '../../components/contentWrapper/ContentWrapper';
+import Popular from './popular/Popular';
+import TopRated from './topRated/TopRated';
 
 const Home = () => {
   return (
     <div className='homePage'>
         <HeroBanner/>
         <Trending/>
+        <Popular/>
+        <TopRated/>
     </div>
   )
 }

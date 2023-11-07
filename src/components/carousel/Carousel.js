@@ -20,7 +20,7 @@ import CircleRating from "../circleRating/CircleRating";
 import "./style.scss";
 
 //destructuring data from thr props
-const Carousel = ({ data, loading }) => {
+const Carousel = ({ data, loading, endpoint }) => {
   //we use this to catch any element such as a div
   const carouselContainer = useRef();
   //getting url from store
@@ -29,7 +29,18 @@ const Carousel = ({ data, loading }) => {
   const navigate = useNavigate();
 
   //creating a navigation function to scroll left and right
-  const navigation = (direction) => {};
+  const navigation = (direction) => {
+    const container = carouselContainer.current;
+    const scrollAmount =
+      direction === "left"
+        ? container.scrollLeft - (container.offsetWidth + 20)
+        : container.scrollLeft + (container.offsetWidth + 20);
+
+    container.scrollTo({
+      left: scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   const skItem = () => {
     return (
@@ -55,7 +66,8 @@ const Carousel = ({ data, loading }) => {
           onClick={() => navigation("right")}
         />
         {!loading ? (
-          <div className="carouselItems">
+          //passing the carouselItems as ref
+          <div className="carouselItems" ref={carouselContainer}>
             {/* looping through data to populate carousel */}
             {data?.map((item) => {
               //if poster exits, show it, else use fallback image
@@ -63,7 +75,13 @@ const Carousel = ({ data, loading }) => {
                 ? url.poster + item.poster_path
                 : PosterFallback;
               return (
-                <div key={item.id} className="carouselItem">
+                //adding navigate function to every movie block
+                <div
+                  key={item.id}
+                  className="carouselItem"
+                  //if media type not available, use the endpoint we provided 
+                  onClick={() => navigate(`/${item.media_type || endpoint}/${item.id}`)}
+                >
                   <div className="posterBlock">
                     <Img src={posterUrl} />
                     {/* adding rating component; Showing only 1 decimal point */}

@@ -27,6 +27,9 @@ function App() {
     //calling our api to fetch data
     fetchApiConfig();
     // eslint-disable-next-line
+
+    //calling the genres function when loading first
+    // genresCall();
   }, []);
 
   const fetchApiConfig = () => {
@@ -46,7 +49,25 @@ function App() {
 
   //we fetch genres of both movies and shows initially and store them into our stores
   //for multiple API calls, we use promise.all
-  
+  //making API calls based on genre
+  // const genresCall = async () => {
+  //   let promises = [];
+  //   let endPoints = ["tv", "movie"];
+  //   let allGenres = {};
+
+  //   endPoints.forEach((url)=>{
+  //     promises.push(fetchApiData(`/genre/${url}/list`));
+  //   })
+
+  //   //Promise.all returns data of both the aPI call at once, and not before that
+  //   const data = await Promise.all(promises);
+  //   data.map(({genres})=>{
+  //     return genres.map((item)=>(allGenres[item.id = item]));
+  //   });
+
+  //   console.log(allGenres);
+  // };
+
   return (
     <>
       <BrowserRouter>
