@@ -20,7 +20,7 @@ import CircleRating from "../circleRating/CircleRating";
 import "./style.scss";
 
 //destructuring data from thr props
-const Carousel = ({ data, loading, endpoint }) => {
+const Carousel = ({ data, loading, endpoint, title }) => {
   //we use this to catch any element such as a div
   const carouselContainer = useRef();
   //getting url from store
@@ -57,6 +57,8 @@ const Carousel = ({ data, loading, endpoint }) => {
   return (
     <div className="carousel">
       <ContentWrapper>
+        {/* if title passed, add it */}
+        {title && <div className="carouselTitle">{title}</div>}
         <BsFillArrowLeftCircleFill
           className="carouselLeftNav arrow"
           onClick={() => navigation("left")}

@@ -12,13 +12,17 @@ import CircleRating from "../../../components/circleRating/CircleRating";
 import Img from "../../../components/lazyLoadImage/Img";
 import PosterFallback from "../../../assets/no-poster.jpg";
 import { PlayIcon } from "./PlayIcon";
+import VideoPopup from "../../../components/videoPopup/VideoPopup";
 
 const DetailsBanner = ({ video, crew }) => {
+  //creating state for video PopUp
+  const [show, setShow] = useState(false);
+  const [videoId, setVideoId] = useState(null);
+
   //destructuring the url
   const { mediaType, id } = useParams();
   //calling the aPI to fetch movie details
   const { data, loading } = useFetch(`/${mediaType}/${id}`);
-  console.log(data);
 
   //getting base url for image from redux store
   const { url } = useSelector((state) => state.home);
@@ -73,13 +77,56 @@ const DetailsBanner = ({ video, crew }) => {
                       {/* movie rating */}
                       <CircleRating rating={data.vote_average.toFixed(1)} />
                       {/* Watch Trailer Button */}
-                      <div className="playbtn" onClick={()=>{}}>
+                      <div
+                        className="playbtn"
+                        onClick={() => {
+                          setShow(true);
+                          setVideoId(video?.key);
+                        }}
+                      >
                         <PlayIcon />
                         <span className="text">Watch Trailer</span>
                       </div>
                     </div>
+                    {/* Overview */}
+                    <div className="overview">
+                      <div className="heading">Overview</div>
+                      <div className="description">{data?.overview}</div>
+                    </div>
+                    {/* Info and release */}
+                    <div className="info">
+                      {data.status && (
+                        <div className="infoItem">
+                          <span className="text bold">Status: </span>
+                          <div className="text">{data.status}</div>
+                        </div>
+                      )}
+                      {data.release_date && (
+                        <div className="infoItem">
+                          <span className="text bold">Release Date: </span>
+                          <div className="text">
+                            {dayjs(data.release_date).format("MMM D, YYYY")}
+                          </div>
+                        </div>
+                      )}
+                      {data.runtime && (
+                        <div className="infoItem">
+                          <span className="text bold">Runtime: </span>
+                          <div className="text">
+                            {toHoursAndMinutes(data.runtime)}
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
+                {/* popUp to play trailer */}
+                <VideoPopup
+                  show={show}
+                  setShow={setShow}
+                  videoId={videoId}
+                  setVideoId={setVideoId}
+                />
               </ContentWrapper>
             </React.Fragment>
           )}
