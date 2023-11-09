@@ -72,7 +72,7 @@ const HeroBanner = () => {
               //function fired when user lifts finger from the keyboard
               onKeyUp={searchQueryHandler}
             />
-            <button>Search</button>{" "}
+            <button onClick={()=>{navigate(`/search/${query}`)}}>Search</button>{" "}
           </div>
         </div>
       </ContentWrapper>

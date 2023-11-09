@@ -2,7 +2,7 @@ import axios from 'axios';
 
 //declaring the API key
 // const apiKey = process.env.REACT_APP_NEWS_API
-const apiKey = "a76b34b2e105fa4206f09f61dfd48f38"; //HIDE THIS!
+const apiKey = "d201050bd524332ba636f32aaa78750e"; //HIDE THIS!
 
 //declaring a base URL for the api
 const baseUrl = `https://api.themoviedb.org/3/`;

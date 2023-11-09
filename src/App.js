@@ -76,7 +76,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/:mediaType/:id" element={<Details />} />
           <Route exact path="/search/:query" element={<SearchResult />} />
-          <Route exact path="/explore/:mediaType" element={<SearchResult />} />
+          <Route exact path="/explore/:mediaType" element={<Explore />} />
           {/* FOR ANY OTHER ROUTES, THE 404 PAGE WILL BE RETURNED */}
           <Route exact path="*" element={<PageNotFound />} />
         </Routes>
