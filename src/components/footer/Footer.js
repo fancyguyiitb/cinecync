@@ -1,50 +1,47 @@
 import React from "react";
 //im prting icons from react
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+  FaLinkedin,
+} from "react-icons/fa";
 //enclosing everything in a content wrapper
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 //CSS
 import "./style.scss";
 
 const Footer = () => {
-  let year = new Date().getFullYear();
   return (
     <footer className="footer">
       <ContentWrapper>
-        <h4 className="footer-title">Copyright {year}: Sarthak Niranjan</h4>
-        <a
-          href="https://github.com/fancyguyiitb/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <h6>View GitHub Repository</h6>
-        </a>
+        <ul className="menuItems">
+          <li className="menuItem">Terms Of Use</li>
+          <li className="menuItem">Privacy-Policy</li>
+          <li className="menuItem">About</li>
+          <li className="menuItem">Blog</li>
+          <li className="menuItem">FAQ</li>
+        </ul>
         <div className="infoText">
-          Welcome to MovieMania – your one-stop hub for movie details! Discover
-          comprehensive information on any movie you're interested in. From
-          classic favorites to the latest releases, find cast details, plot
-          summaries, ratings, reviews, and trailers with ease. MovieMania offers
-          a user-friendly interface for both cinephiles and casual enthusiasts.
-          Explore the world of movies effortlessly with us!
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
         </div>
         <div className="socialIcons">
           <span className="icon">
-            <a
-              href="https://www.instagram.com/fancy.guy_iitb/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaInstagram />
-            </a>
+            <FaFacebookF />
           </span>
           <span className="icon">
-            <a
-              href="https://www.linkedin.com/in/sarthak-niranjan-abba821a9/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaLinkedin />
-            </a>
+            <FaInstagram />
+          </span>
+          <span className="icon">
+            <FaTwitter />
+          </span>
+          <span className="icon">
+            <FaLinkedin />
           </span>
         </div>
       </ContentWrapper>

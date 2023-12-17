@@ -68,7 +68,24 @@ const Header = () => {
     <header className={`header ${mobileMenu ? "mobileView" : ""} ${show}`}>
       <ContentWrapper>
         <div className="logo">
-          {/* <img src={logo} alt="" className="logo-img" onClick={()=>navigate("/")}/> */}
+          <img src={logo} alt="" className="logo-img" onClick={()=>navigate("/")}/>
+        </div>
+        <ul className="menuItems">
+          <li className="menuItem" onClick={()=>navigationHandler("movie")}>Movies</li>
+          <li className="menuItem" onClick={()=>navigationHandler("tv")}>TV Shows</li>
+          <li className="menuItem">
+            <HiOutlineSearch onClick={openSearch}/>
+          </li>
+        </ul>
+
+        <div className="mobileMenuItems">
+          <HiOutlineSearch onClick={openSearch}/>
+          {/* if on mobile screen, show the close button, else the menu button */}
+          {mobileMenu ? (
+            <VscChromeClose onClick={() => setMobileMenu(false)} />
+          ) : (
+            <SlMenu onClick={openMobileMenu} />
+          )}
         </div>
       </ContentWrapper>
 
