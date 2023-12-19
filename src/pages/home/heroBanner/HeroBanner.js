@@ -60,9 +60,9 @@ const HeroBanner = () => {
 
       <ContentWrapper>
         <div className="heroBannerContent">
-          <span className="title">Welcome User</span>
+          <span className="title">Welcome!</span>
           <span className="subTitle">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            MovieMania helps you find everything about your favorite movie.
           </span>
           <div className="searchInput">
             <input

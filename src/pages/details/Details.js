@@ -6,9 +6,6 @@ import useFetch from "../../hooks/useFetch";
 import DetailsBanner from "./detailsBanner/DetailsBanner";
 
 import Cast from "./cast/Cast";
-import VideosSection from "./videosSection/VideoSection";
-import Similar from "./carousels/Similar";
-import Recommendation from "./carousels/Recommendation";
 
 const Details = () => {
   //destructuring the url
@@ -25,9 +22,6 @@ const Details = () => {
     <div>
       <DetailsBanner video={data?.results?.[0]} crew={credits?.crew} />
       <Cast data={credits?.crew} loading={credits?.loading}/>
-      <VideosSection data={data}/>
-      <Similar mediaType={mediaType} id={id}/>
-      <Recommendation mediaType={mediaType} id={id}/>
     </div>
   );
 };

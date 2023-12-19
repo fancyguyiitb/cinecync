@@ -7,12 +7,12 @@ import "./style.scss";
 
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import useFetch from "../../../hooks/useFetch";
-import Genres from "../../../components/genres/Genres";
+
 import CircleRating from "../../../components/circleRating/CircleRating";
 import Img from "../../../components/lazyLoadImage/Img";
 import PosterFallback from "../../../assets/no-poster.jpg";
 import { PlayIcon } from "./PlayIcon";
-import VideoPopup from "../../../components/videoPopup/VideoPopup";
+// import VideoPopup from "../../../components/videoPopup/VideoPopup";
 
 const DetailsBanner = ({ video, crew }) => {
   //creating state for video PopUp
@@ -120,13 +120,6 @@ const DetailsBanner = ({ video, crew }) => {
                     </div>
                   </div>
                 </div>
-                {/* popUp to play trailer */}
-                <VideoPopup
-                  show={show}
-                  setShow={setShow}
-                  videoId={videoId}
-                  setVideoId={setVideoId}
-                />
               </ContentWrapper>
             </React.Fragment>
           )}

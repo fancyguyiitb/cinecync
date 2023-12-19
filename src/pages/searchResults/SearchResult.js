@@ -12,6 +12,7 @@ import MovieCard from "../../components/movieCard/MovieCard";
 import Spinner from "../../components/spinner/Spinner";
 import noResults from "../../assets/no-results.png";
 
+
 const SearchResult = () => {
   //  CREATING STATES
   //--data state to store API data
@@ -113,6 +114,7 @@ const SearchResult = () => {
                   );
                 })}
               </InfiniteScroll>
+              
             </>
           ) : (
             <span className="resultNotFound">Sorry, Results not found!</span>
